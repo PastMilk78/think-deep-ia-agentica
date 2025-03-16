@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Header = () => {
   return (
@@ -19,7 +20,9 @@ const Header = () => {
           <p className="text-xl md:text-2xl max-w-3xl text-center mb-8">
             Optimiza tus procesos empresariales con soluciones inteligentes y personalizadas
           </p>
-          <button className="button text-lg">Conoce Nuestros Servicios</button>
+          <Link href="/#servicios">
+            <button className="button text-lg">Conoce Nuestros Servicios</button>
+          </Link>
         </div>
       </div>
     </header>

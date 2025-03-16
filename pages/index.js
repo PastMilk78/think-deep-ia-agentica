@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import Services from '../components/Services';
 import Benefits from '../components/Benefits';
 import Process from '../components/Process';
+import AutomationExamples from '../components/AutomationExamples';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 
@@ -20,6 +21,7 @@ export default function Home() {
       <Header />
       <Services />
       <Benefits />
+      <AutomationExamples />
       <Process />
       <Contact />
       <Footer />

@@ -32,7 +32,9 @@ const Navbar = () => {
             Contacto
           </Link>
         </div>
-        <button className="button">Solicitar Demo</button>
+        <Link href="/#contacto">
+          <button className="button">Solicitar Demo</button>
+        </Link>
       </div>
     </nav>
   );
