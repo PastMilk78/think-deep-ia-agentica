@@ -10,6 +10,7 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
   const [submitStatus, setSubmitStatus] = useState('');
+  const [errorDetail, setErrorDetail] = useState('');
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -24,11 +25,15 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitMessage('');
     setSubmitStatus('');
+    setErrorDetail('');
+    
+    console.log('Iniciando envío del formulario...', formData);
 
     try {
       // Intentar primero con el nuevo endpoint alternativo
       let response;
       let data;
+      let useMethod = '';
       
       try {
         // Primero intentamos con el nuevo método
@@ -42,12 +47,19 @@ const Contact = () => {
         });
         
         data = await response.json();
+        console.log('Respuesta del método alternativo:', data);
         
         if (!response.ok) {
-          throw new Error(data.error || 'Error con el método alternativo');
+          const errorMsg = `Error con el método alternativo: ${data.error || 'Desconocido'}`;
+          console.error(errorMsg, data);
+          if (data.details) {
+            console.error('Detalles del error:', data.details);
+          }
+          throw new Error(errorMsg);
         }
         
         console.log('Mensaje enviado exitosamente con el método alternativo');
+        useMethod = 'alternativo';
       } catch (alternativeError) {
         // Si el método alternativo falla, intentamos con el método original
         console.log('El método alternativo falló, intentando con el método original...', alternativeError);
@@ -61,17 +73,24 @@ const Contact = () => {
         });
         
         data = await response.json();
+        console.log('Respuesta del método original:', data);
         
         if (!response.ok) {
-          throw new Error(data.error || 'Error con el método original');
+          const errorMsg = `Error con el método original: ${data.error || 'Desconocido'}`;
+          console.error(errorMsg, data);
+          if (data.details) {
+            console.error('Detalles del error:', data.details);
+          }
+          throw new Error(errorMsg);
         }
         
         console.log('Mensaje enviado exitosamente con el método original');
+        useMethod = 'original';
       }
 
       // Si llegamos aquí, uno de los métodos funcionó
       setSubmitStatus('success');
-      setSubmitMessage('¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.');
+      setSubmitMessage(`¡Mensaje enviado con éxito usando el método ${useMethod}! Nos pondremos en contacto contigo pronto.`);
       
       // Resetear el formulario
       setFormData({
@@ -82,9 +101,13 @@ const Contact = () => {
       });
     } catch (error) {
       // Ambos métodos fallaron
+      console.error('Error al enviar el formulario:', error);
+      
       setSubmitStatus('error');
       setSubmitMessage('Hubo un error al enviar el mensaje. Por favor, intenta nuevamente o contáctanos directamente por teléfono.');
-      console.error('Error al enviar el formulario:', error);
+      
+      // Guardar detalles del error para debug
+      setErrorDetail(error.toString());
     } finally {
       setIsSubmitting(false);
     }
@@ -156,6 +179,18 @@ const Contact = () => {
               {submitMessage && (
                 <div className={`p-4 rounded-md ${submitStatus === 'success' ? 'bg-green-900 text-green-200' : 'bg-red-900 text-red-200'}`}>
                   {submitMessage}
+                  
+                  {/* Solo mostrar detalles del error en entorno de desarrollo */}
+                  {submitStatus === 'error' && errorDetail && (
+                    <div className="mt-2 text-xs opacity-75">
+                      <details>
+                        <summary>Detalles técnicos (para debug)</summary>
+                        <pre className="mt-1 overflow-auto max-h-32 p-2 bg-gray-800 rounded">
+                          {errorDetail}
+                        </pre>
+                      </details>
+                    </div>
+                  )}
                 </div>
               )}
               
