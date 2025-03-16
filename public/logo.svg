@@ -1,0 +1,6 @@
+<svg width="200" height="100" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <path d="M50,20 Q80,5 100,20 Q120,35 100,50 Q80,65 50,50 Q30,35 50,20" fill="#FFD700" stroke="none" stroke-width="0"/>
+    <text x="50" y="90" font-family="Montserrat, sans-serif" font-size="24" font-weight="bold" fill="#FFFFFF">think deep</text>
+  </g>
+</svg> 
