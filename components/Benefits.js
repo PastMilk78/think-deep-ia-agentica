@@ -39,7 +39,10 @@ const Benefits = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
-            <div key={index} className="border border-gray-800 p-6 rounded-lg hover:border-secondary transition-colors bg-gray-900">
+            <div 
+              key={index} 
+              className="bg-gray-900 p-6 rounded-lg transition-all duration-300 hover:scale-105 border-2 border-gray-800 hover:border-secondary hover:shadow-[0_0_15px_rgba(255,215,0,0.5)] relative overflow-hidden"
+            >
               <h3 className="text-xl font-semibold mb-3 text-white">{benefit.title}</h3>
               <p className="text-gray-400">{benefit.description}</p>
             </div>

@@ -39,7 +39,10 @@ const Process = () => {
         
         <div className="space-y-8">
           {steps.map((step, index) => (
-            <div key={index} className="flex flex-col md:flex-row items-start md:items-center bg-gray-900 p-6 rounded-lg shadow-md border border-gray-800">
+            <div 
+              key={index} 
+              className="flex flex-col md:flex-row items-start md:items-center bg-gray-900 p-6 rounded-lg transition-all duration-300 hover:scale-105 border-2 border-gray-800 hover:border-secondary hover:shadow-[0_0_15px_rgba(255,215,0,0.5)] relative overflow-hidden"
+            >
               <div className="flex-shrink-0 bg-secondary text-primary font-bold text-2xl w-16 h-16 rounded-full flex items-center justify-center mb-4 md:mb-0 md:mr-6">
                 {step.number}
               </div>
