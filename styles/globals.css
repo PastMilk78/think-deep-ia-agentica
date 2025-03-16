@@ -18,6 +18,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   color: var(--text-color);
   background-color: var(--background-color);
+  scroll-behavior: smooth;
 }
 
 a {
@@ -47,7 +48,8 @@ a {
 }
 
 .section {
-  padding: 4rem 0;
+  padding: 6rem 0;
+  position: relative;
 }
 
 .section-title {
@@ -55,6 +57,19 @@ a {
   font-weight: 700;
   margin-bottom: 2rem;
   color: var(--text-color);
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--secondary-color);
 }
 
 .section-subtitle {
@@ -71,9 +86,23 @@ a {
   border-radius: 4px;
   font-weight: 600;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
 
 .button:hover {
-  opacity: 0.9;
+  opacity: 0.95;
   transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+/* Añadir un efecto de brillo al pasar el cursor sobre elementos con hover-glow */
+.hover-glow {
+  transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+  border-color: var(--secondary-color);
 } 
