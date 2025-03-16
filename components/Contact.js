@@ -116,7 +116,9 @@ const Contact = () => {
   return (
     <section id="contacto" className="section bg-black">
       <div className="container mx-auto">
-        <h2 className="section-title text-center">Contáctanos</h2>
+        <h2 className="section-title text-center">
+          <span className="main-title-light">Contáctanos</span>
+        </h2>
         <p className="text-center text-lg mb-12 max-w-3xl mx-auto text-gray-300">
           Estamos listos para ayudarte a transformar tu negocio con soluciones de IA agéntica
         </p>

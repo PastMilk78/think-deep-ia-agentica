@@ -20,7 +20,7 @@ const Header = () => {
       <div className="bg-gradient-to-b from-gray-900 to-black py-16">
         <div className="container mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">
-            <span className="light-underline">Automatización de Workflow</span><br />
+            <span className="main-title-light">Automatización de Workflow</span><br />
             con <span className="text-yellow-400">IA Agéntica</span>
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-300 mb-10">

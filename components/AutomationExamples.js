@@ -36,7 +36,7 @@ const AutomationExamples = () => {
     <section className="section bg-gray-900">
       <div className="container mx-auto">
         <h2 className="section-title text-center">
-          <span className="uplight-title">Proyectos Destacados</span>
+          <span className="main-title-light">Proyectos Destacados</span>
         </h2>
         <p className="text-center text-lg mb-12 max-w-3xl mx-auto text-gray-300">
           Conoce algunos de nuestros proyectos más recientes en <span className="highlight-underline">automatización</span>, <span className="highlight-underline">desarrollo web</span> y <span className="highlight-underline">desarrollo de software</span>

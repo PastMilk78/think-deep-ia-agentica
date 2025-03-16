@@ -44,7 +44,7 @@ const Services = () => {
     <section id="servicios" className="section bg-primary">
       <div className="container mx-auto">
         <h2 className="section-title text-center">
-          <span className="uplight-title">Nuestros Servicios</span>
+          <span className="main-title-light">Nuestros Servicios</span>
         </h2>
         <p className="text-center text-lg mb-12 max-w-3xl mx-auto text-gray-300">
           Ofrecemos soluciones avanzadas de <span className="highlight-underline">automatización</span>, <span className="highlight-underline">desarrollo de software</span> y <span className="highlight-underline">desarrollo web</span> para optimizar tus procesos empresariales

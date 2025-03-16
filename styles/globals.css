@@ -145,34 +145,37 @@ a {
 .uplight-title::after {
   content: '';
   position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 4px;
-  background-color: transparent; /* Eliminamos la línea plana amarilla */
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 15px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 215, 0, 0.8) 50%,
+    rgba(255, 255, 255, 0.9) 100%
+  );
   border-radius: 2px;
+  z-index: -1;
 }
 
 .uplight-title::before {
   content: '';
   position: absolute;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 150px;
-  height: 100px;
-  background: radial-gradient(
-    ellipse at bottom,
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(
+    to bottom,
     var(--intense-glow-color) 0%,
-    rgba(255, 215, 0, 0.8) 20%,
-    rgba(255, 215, 0, 0.5) 40%,
-    rgba(255, 215, 0, 0.2) 60%,
-    transparent 80%
+    rgba(255, 215, 0, 0.8) 30%,
+    rgba(255, 215, 0, 0.4) 60%,
+    transparent 100%
   );
-  filter: blur(6px);
+  filter: blur(10px);
   opacity: 0.9;
-  z-index: -1;
+  z-index: -2;
   pointer-events: none;
 }
 
@@ -286,4 +289,48 @@ a {
 .emoji-tooltip:hover .tooltip-text {
   visibility: visible;
   opacity: 1;
+}
+
+/* Efecto de luz horizontal intenso para títulos principales */
+.main-title-light {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+.main-title-light::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 215, 0, 0.9) 50%,
+    rgba(255, 255, 255, 0.95) 100%
+  );
+  z-index: -1;
+}
+
+.main-title-light::before {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 215, 0, 1) 0%,
+    rgba(255, 215, 0, 0.9) 20%,
+    rgba(255, 215, 0, 0.6) 50%,
+    rgba(255, 215, 0, 0.3) 80%,
+    transparent 100%
+  );
+  filter: blur(15px);
+  opacity: 1;
+  z-index: -2;
+  pointer-events: none;
 } 
