@@ -40,7 +40,7 @@ const AutomationExamples = () => {
           {projects.map((project, index) => (
             <div 
               key={index}
-              className="bg-black rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,215,0,0.3)] border border-gray-800 hover:border-yellow-500 group"
+              className="glow-border bg-black rounded-lg overflow-hidden shadow-lg transition-all duration-300 group"
             >
               <div className="relative h-48 overflow-hidden">
                 <Image 
