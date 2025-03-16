@@ -26,25 +26,34 @@ const Contact = () => {
     setSubmitStatus('');
 
     try {
-      // Aquí normalmente se enviaría el formulario a un endpoint de backend
-      // Por ahora, simulamos el envío con un timeout
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Mensaje de éxito
-      setSubmitStatus('success');
-      setSubmitMessage('¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.');
-      
-      // Resetear el formulario
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        message: ''
+      // Enviar los datos del formulario a nuestro endpoint de API
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
 
-      // En un entorno real, aquí se enviaría el correo a salvador@thinkdeepgroup.com
-      console.log('Correo enviado a: salvador@thinkdeepgroup.com');
-      console.log('Datos del formulario:', formData);
+      const data = await response.json();
+
+      if (response.ok) {
+        // Mensaje de éxito
+        setSubmitStatus('success');
+        setSubmitMessage('¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.');
+        
+        // Resetear el formulario
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          message: ''
+        });
+      } else {
+        // Mensaje de error
+        setSubmitStatus('error');
+        setSubmitMessage(`Error: ${data.error || 'Hubo un problema al enviar el mensaje'}`);
+      }
     } catch (error) {
       setSubmitStatus('error');
       setSubmitMessage('Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.');
