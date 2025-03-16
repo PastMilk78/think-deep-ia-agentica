@@ -9,7 +9,8 @@
   --secondary-color: #FFD700; /* Color amarillo para el logo */
   --background-color: #000000;
   --text-color: #FFFFFF;
-  --glow-color: rgba(255, 215, 0, 0.8);
+  --glow-color: rgba(255, 215, 0, 0.9);
+  --intense-glow-color: rgba(255, 215, 0, 1);
 }
 
 html,
@@ -63,14 +64,7 @@ a {
 }
 
 .section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
-  background-color: var(--secondary-color);
+  display: none;
 }
 
 .section-subtitle {
@@ -141,55 +135,45 @@ a {
   transform: scaleX(1);
 }
 
-/* Línea de luz brillante permanente con efecto pulsante */
-.light-underline {
+/* Nuevo efecto de luz intensa que apunta hacia arriba */
+.uplight-title {
   position: relative;
   display: inline-block;
+  z-index: 1;
 }
 
-.light-underline::after {
+.uplight-title::after {
   content: '';
   position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    var(--glow-color) 50%, 
-    transparent 100%
-  );
-  filter: blur(1px);
-  box-shadow: 
-    0 0 5px var(--glow-color),
-    0 0 10px var(--glow-color),
-    0 0 15px var(--glow-color);
-  animation: pulse-glow 3s infinite;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background-color: var(--secondary-color);
+  border-radius: 2px;
 }
 
-@keyframes pulse-glow {
-  0% {
-    opacity: 0.6;
-    filter: blur(1px);
-    box-shadow: 
-      0 0 5px var(--glow-color),
-      0 0 8px var(--glow-color);
-  }
-  50% {
-    opacity: 1;
-    filter: blur(1.5px);
-    box-shadow: 
-      0 0 10px var(--glow-color),
-      0 0 20px var(--glow-color),
-      0 0 30px var(--glow-color);
-  }
-  100% {
-    opacity: 0.6;
-    filter: blur(1px);
-    box-shadow: 
-      0 0 5px var(--glow-color),
-      0 0 8px var(--glow-color);
-  }
+.uplight-title::before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 80px;
+  background: radial-gradient(
+    ellipse at bottom,
+    var(--intense-glow-color) 0%,
+    rgba(255, 215, 0, 0.7) 20%,
+    rgba(255, 215, 0, 0.4) 40%,
+    rgba(255, 215, 0, 0.1) 60%,
+    transparent 80%
+  );
+  filter: blur(8px);
+  opacity: 0.8;
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* Efecto de spotlight para textos importantes */
@@ -209,7 +193,7 @@ a {
   height: 100%;
   background: linear-gradient(90deg, 
     transparent 0%, 
-    rgba(255, 215, 0, 0.1) 50%, 
+    rgba(255, 215, 0, 0.2) 50%, 
     transparent 100%
   );
   animation: light-sweep 3s ease-in-out infinite;
@@ -261,4 +245,45 @@ a {
   100% {
     background-position: 200% 200%;
   }
+}
+
+/* Estilo para los emojis con efecto hover */
+.emoji-icon {
+  font-size: 2.5rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.emoji-hover:hover .emoji-icon {
+  transform: scale(1.3);
+  filter: drop-shadow(0 0 10px var(--glow-color));
+}
+
+/* Tooltip para los emojis */
+.emoji-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.emoji-tooltip .tooltip-text {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 10;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 0.8rem;
+}
+
+.emoji-tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
 } 
