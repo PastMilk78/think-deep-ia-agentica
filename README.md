@@ -27,8 +27,8 @@ Este es el repositorio del sitio web de Think Deep IA, una empresa especializada
 
 1. Clona este repositorio:
    ```
-   git clone https://github.com/PastMilk78/think-deep-ia-agentica.git
-   cd think-deep-ia-agentica
+   git clone https://github.com/PastMilk78/think-deep-ia-website.git
+   cd think-deep-ia-website
    ```
 
 2. Instala las dependencias:
@@ -46,7 +46,16 @@ Este es el repositorio del sitio web de Think Deep IA, una empresa especializada
 
    **Opción 2: Variable de entorno (recomendado para producción)**
    
-   Configura la variable de entorno `GOOGLE_SERVICE_ACCOUNT_CREDENTIALS` con el contenido del archivo JSON de credenciales.
+   Configura la variable de entorno `GOOGLE_CREDENTIALS` con el contenido del archivo JSON de credenciales codificado en Base64.
+
+   Para codificar el JSON en Base64:
+   ```bash
+   echo -n '{
+       "type": "service_account",
+       "project_id": "balmy-vehicle-421219",
+       ...
+   }' | base64
+   ```
 
    **Nota importante sobre la cuenta de servicio:**
    
@@ -82,8 +91,8 @@ Este sitio está desplegado en Vercel. Cada vez que se hace push a la rama princ
 Para que el envío de correos funcione en Vercel, configura la variable de entorno:
 
 1. En la configuración de tu proyecto en Vercel, ve a la sección "Environment Variables"
-2. Añade una nueva variable llamada `GOOGLE_SERVICE_ACCOUNT_CREDENTIALS` con el contenido completo del archivo JSON de credenciales
-3. Asegúrate de que el valor esté correctamente formateado como JSON válido
+2. Añade una nueva variable llamada `GOOGLE_CREDENTIALS` con el contenido del archivo JSON de credenciales codificado en Base64
+3. Asegúrate de que el valor esté correctamente formateado
 
 ## Contacto
 

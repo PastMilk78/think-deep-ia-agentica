@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     }
 
     // Verificar si tenemos las credenciales en variables de entorno
-    if (!process.env.GOOGLE_SERVICE_ACCOUNT_CREDENTIALS) {
+    if (!process.env.GOOGLE_CREDENTIALS) {
       console.error('No se encontraron credenciales en variables de entorno');
       return res.status(500).json({ 
         error: 'Error de configuración del servidor',
@@ -27,9 +27,12 @@ export default async function handler(req, res) {
 
     let credentials;
     try {
-      credentials = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_CREDENTIALS);
+      // Decodificar las credenciales desde Base64
+      credentials = JSON.parse(
+        Buffer.from(process.env.GOOGLE_CREDENTIALS, "base64").toString("utf-8")
+      );
     } catch (error) {
-      console.error('Error al parsear credenciales de variable de entorno:', error);
+      console.error('Error al decodificar credenciales de variable de entorno:', error);
       return res.status(500).json({ 
         error: 'Error de configuración del servidor',
         message: 'Error al procesar las credenciales'
