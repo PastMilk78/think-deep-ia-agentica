@@ -77,11 +77,24 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contacto</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li>Av. Principal 123, Edificio Empresarial</li>
-              <li>+123 456 7890</li>
-              <li>info@thinkdeep.com</li>
+            <h4 className="text-lg font-semibold mb-4">Información de Contacto</h4>
+            <ul className="space-y-3 text-gray-400">
+              <li>
+                <p className="font-medium text-white">Dirección</p>
+                <p>Av. Principal 123, Edificio Empresarial, Piso 5</p>
+              </li>
+              <li>
+                <p className="font-medium text-white">Teléfono</p>
+                <p>+123 456 7890</p>
+              </li>
+              <li>
+                <p className="font-medium text-white">Email</p>
+                <p>info@thinkdeep.com</p>
+              </li>
+              <li>
+                <p className="font-medium text-white">Horario de Atención</p>
+                <p>Lunes a Sábado: 9:00 AM - 6:00 PM</p>
+              </li>
             </ul>
           </div>
         </div>
