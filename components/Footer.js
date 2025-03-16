@@ -8,13 +8,17 @@ const Footer = () => {
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-1">
-            <div className="relative w-40 h-12 mb-4">
-              <Image 
-                src="/logo-original.png" 
-                alt="Think Deep Logo" 
-                width={160}
-                height={48}
-              />
+            <div className="flex items-center mb-4">
+              <div className="relative w-12 h-12 bg-black rounded-lg overflow-hidden">
+                <Image 
+                  src="/logo-original.png" 
+                  alt="Think Deep Logo" 
+                  width={48}
+                  height={48}
+                  className="object-contain"
+                />
+              </div>
+              <span className="ml-2 text-white font-bold text-lg">think deep</span>
             </div>
             <p className="text-gray-400 mb-4">
               Transformando negocios con soluciones inteligentes de IA agéntica.
