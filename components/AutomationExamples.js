@@ -1,75 +1,77 @@
 import React from 'react';
+import Image from 'next/image';
 
 const AutomationExamples = () => {
-  const examples = [
+  const projects = [
     {
-      icon: '🤖',
-      title: 'Chatbots Inteligentes',
-      description: 'Automatiza la atención al cliente 24/7 con chatbots que aprenden de cada interacción y resuelven consultas complejas.'
+      title: 'Plataforma de Automatización de Ventas',
+      description: 'Sistema inteligente que automatiza el proceso de ventas desde la prospección hasta el cierre, reduciendo el tiempo de ciclo en un 40%.',
+      image: '/automation-example-1.jpg',
+      tags: ['Automatización', 'IA', 'Ventas'],
+      category: 'Automatización'
     },
     {
-      icon: '📊',
-      title: 'Análisis de Datos',
-      description: 'Procesa grandes volúmenes de datos para identificar patrones y tendencias que impulsen decisiones estratégicas.'
+      title: 'Sitio Web Think Deep',
+      description: 'Desarrollo de sitio web corporativo con diseño moderno, optimizado para SEO y con formulario de contacto integrado con sistema de correo electrónico.',
+      image: '/header-original.jpg',
+      tags: ['Desarrollo Web', 'Next.js', 'Tailwind CSS'],
+      category: 'Desarrollo Web'
     },
     {
-      icon: '📝',
-      title: 'Generación de Contenido',
-      description: 'Crea automáticamente informes, correos electrónicos y contenido de marketing personalizado para diferentes audiencias.'
+      title: 'Sistema de Gestión Empresarial',
+      description: 'Software a medida para la gestión integral de recursos, clientes y proyectos, con módulos personalizados según las necesidades específicas del cliente.',
+      image: '/automation-example-2.jpg',
+      tags: ['Desarrollo de Software', 'ERP', 'Gestión'],
+      category: 'Desarrollo de Software'
     },
-    {
-      icon: '📅',
-      title: 'Programación Inteligente',
-      description: 'Optimiza la gestión de calendarios y reuniones con asistentes virtuales que coordinan horarios automáticamente.'
-    },
-    {
-      icon: '🔍',
-      title: 'Búsqueda Semántica',
-      description: 'Mejora la recuperación de información con sistemas que entienden el contexto y la intención detrás de las consultas.'
-    },
-    {
-      icon: '📈',
-      title: 'Predicción de Tendencias',
-      description: 'Anticipa cambios en el mercado y comportamiento de clientes con modelos predictivos avanzados.'
-    },
-    {
-      icon: '🔄',
-      title: 'Automatización de Procesos',
-      description: 'Elimina tareas repetitivas en departamentos como finanzas, RRHH y operaciones con flujos de trabajo inteligentes.'
-    },
-    {
-      icon: '🛒',
-      title: 'Recomendaciones Personalizadas',
-      description: 'Aumenta las ventas con sistemas que sugieren productos basados en preferencias y comportamientos individuales.'
-    }
   ];
 
   return (
     <section className="section bg-gray-900">
       <div className="container mx-auto">
-        <h2 className="section-title text-center">Ejemplos de Automatización con IA</h2>
+        <h2 className="section-title text-center">
+          <span className="light-underline">Proyectos Destacados</span>
+        </h2>
         <p className="text-center text-lg mb-12 max-w-3xl mx-auto text-gray-300">
-          Descubre cómo la IA agéntica puede transformar diferentes aspectos de tu negocio con estas aplicaciones prácticas
+          Conoce algunos de nuestros proyectos más recientes en <span className="highlight-underline">automatización</span>, <span className="highlight-underline">desarrollo web</span> y <span className="highlight-underline">desarrollo de software</span>
         </p>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {examples.map((example, index) => (
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
             <div 
-              key={index} 
-              className="bg-gray-800 rounded-lg p-6 transition-all duration-300 hover:scale-105 border-2 border-gray-700 hover:border-secondary hover:shadow-[0_0_15px_rgba(255,215,0,0.5)] relative overflow-hidden"
+              key={index}
+              className="bg-black rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,215,0,0.3)] border border-gray-800 hover:border-yellow-500 group"
             >
-              <div className="text-4xl mb-4">{example.icon}</div>
-              <h3 className="text-xl font-semibold mb-3 text-white">{example.title}</h3>
-              <p className="text-gray-400">{example.description}</p>
+              <div className="relative h-48 overflow-hidden">
+                <Image 
+                  src={project.image} 
+                  alt={project.title}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  className="transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute top-2 right-2 bg-yellow-500 text-black text-xs font-bold px-2 py-1 rounded">
+                  {project.category}
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-yellow-400 transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-gray-400 mb-4">{project.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag, tagIndex) => (
+                    <span 
+                      key={tagIndex}
+                      className="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           ))}
-        </div>
-        
-        <div className="mt-12 text-center">
-          <p className="text-lg text-gray-300 mb-6">
-            Estos son solo algunos ejemplos de lo que podemos hacer. ¿Tienes un desafío específico?
-          </p>
-          <a href="#contacto" className="button">Hablemos de tu Proyecto</a>
         </div>
       </div>
     </section>

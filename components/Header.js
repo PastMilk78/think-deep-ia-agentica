@@ -20,10 +20,12 @@ const Header = () => {
       <div className="bg-gradient-to-b from-gray-900 to-black py-16">
         <div className="container mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">
-            Automatización de Workflow<br />con IA Agéntica
+            <span className="light-underline">Automatización de Workflow</span><br />
+            con <span className="text-yellow-400">IA Agéntica</span>
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-300 mb-10">
-            Optimiza tus procesos empresariales con soluciones inteligentes y personalizadas
+            Optimiza tus procesos empresariales con soluciones inteligentes y personalizadas<br/>
+            <span className="spotlight-text">Desarrollo de Software • Desarrollo Web • Automatización</span>
           </p>
           <Link href="/#servicios">
             <button className="button text-lg px-8 py-4 shadow-lg hover:shadow-[0_0_15px_rgba(255,215,0,0.3)]">
