@@ -43,7 +43,7 @@ const Process = () => {
     <section id="proceso" className="section bg-primary">
       <div className="container mx-auto">
         <h2 className="section-title text-center">
-          <span className="main-title-light">Nuestro Proceso</span>
+          <span className="glow-title">Nuestro Proceso</span>
         </h2>
         <p className="text-center text-lg mb-12 max-w-3xl mx-auto text-gray-300">
           Un enfoque metódico para implementar soluciones de IA agéntica en tu organización

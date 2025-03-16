@@ -45,7 +45,7 @@ const Benefits = () => {
     <section id="beneficios" className="section bg-black">
       <div className="container mx-auto">
         <h2 className="section-title text-center">
-          <span className="main-title-light">Beneficios</span>
+          <span className="glow-title">Beneficios</span>
         </h2>
         <p className="text-center text-lg mb-12 max-w-3xl mx-auto text-gray-300">
           Descubre cómo nuestras soluciones de IA agéntica pueden transformar tu negocio
