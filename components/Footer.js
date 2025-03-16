@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-1">
             <div className="flex items-center mb-4">
-              <div className="relative w-12 h-12 bg-black rounded-lg overflow-hidden flex items-center justify-center">
+              <div className="relative w-12 h-12 bg-[#313030] rounded-lg overflow-hidden flex items-center justify-center">
                 <Image 
                   src="/logo-original.png" 
                   alt="Think Deep Logo" 

@@ -7,7 +7,7 @@ const Navbar = () => {
     <nav className="bg-black shadow-md py-4">
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/" className="flex items-center">
-          <div className="relative w-16 h-16 bg-black rounded-lg overflow-hidden border-2 border-transparent hover:border-secondary transition-colors flex items-center justify-center">
+          <div className="relative w-16 h-16 bg-[#313030] rounded-lg overflow-hidden border-2 border-transparent hover:border-secondary transition-colors flex items-center justify-center">
             <Image 
               src="/logo-original.png" 
               alt="Think Deep Logo" 
