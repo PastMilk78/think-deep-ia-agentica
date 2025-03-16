@@ -1,10 +1,6 @@
-<<<<<<< HEAD
 import { google } from 'googleapis';
 import path from 'path';
 import fs from 'fs';
-=======
-import nodemailer from 'nodemailer';
->>>>>>> 3216d605b968d66499f2d442a17c60fd1303d6a7
 
 export default async function handler(req, res) {
   // Solo permitir método POST
@@ -20,7 +16,6 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Todos los campos son requeridos' });
     }
 
-<<<<<<< HEAD
     // Verificar si tenemos las credenciales en variables de entorno
     if (!process.env.GOOGLE_CREDENTIALS) {
       console.error('No se encontraron credenciales en variables de entorno');
@@ -88,41 +83,6 @@ Content-Type: text/html; charset=utf-8
       },
     });
 
-=======
-    // Configurar el transporter de nodemailer
-    // Nota: En producción, estas credenciales deberían estar en variables de entorno
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: process.env.EMAIL_USER, // Debe configurarse en .env.local
-        pass: process.env.EMAIL_PASS, // Debe configurarse en .env.local
-      },
-    });
-
-    // Configurar el correo
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: 'salvador@thinkdeepgroup.com',
-      subject: `Nuevo mensaje de contacto de ${name} - ${company}`,
-      text: `
-        Nombre: ${name}
-        Email: ${email}
-        Empresa: ${company}
-        Mensaje: ${message}
-      `,
-      html: `
-        <h3>Nuevo mensaje de contacto</h3>
-        <p><strong>Nombre:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Empresa:</strong> ${company}</p>
-        <p><strong>Mensaje:</strong> ${message}</p>
-      `,
-    };
-
-    // Enviar el correo
-    await transporter.sendMail(mailOptions);
-
->>>>>>> 3216d605b968d66499f2d442a17c60fd1303d6a7
     // Responder con éxito
     return res.status(200).json({ success: true, message: 'Mensaje enviado con éxito' });
   } catch (error) {
