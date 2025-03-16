@@ -26,37 +26,64 @@ const Contact = () => {
     setSubmitStatus('');
 
     try {
-      // Enviar los datos del formulario a nuestro endpoint de API
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        // Mensaje de éxito
-        setSubmitStatus('success');
-        setSubmitMessage('¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.');
-        
-        // Resetear el formulario
-        setFormData({
-          name: '',
-          email: '',
-          company: '',
-          message: ''
+      // Intentar primero con el nuevo endpoint alternativo
+      let response;
+      let data;
+      
+      try {
+        // Primero intentamos con el nuevo método
+        console.log('Intentando enviar mensaje con el método alternativo...');
+        response = await fetch('/api/contact-alternative', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
         });
-      } else {
-        // Mensaje de error
-        setSubmitStatus('error');
-        setSubmitMessage(`Error: ${data.error || 'Hubo un problema al enviar el mensaje'}`);
+        
+        data = await response.json();
+        
+        if (!response.ok) {
+          throw new Error(data.error || 'Error con el método alternativo');
+        }
+        
+        console.log('Mensaje enviado exitosamente con el método alternativo');
+      } catch (alternativeError) {
+        // Si el método alternativo falla, intentamos con el método original
+        console.log('El método alternativo falló, intentando con el método original...', alternativeError);
+        
+        response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+        
+        data = await response.json();
+        
+        if (!response.ok) {
+          throw new Error(data.error || 'Error con el método original');
+        }
+        
+        console.log('Mensaje enviado exitosamente con el método original');
       }
+
+      // Si llegamos aquí, uno de los métodos funcionó
+      setSubmitStatus('success');
+      setSubmitMessage('¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.');
+      
+      // Resetear el formulario
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        message: ''
+      });
     } catch (error) {
+      // Ambos métodos fallaron
       setSubmitStatus('error');
-      setSubmitMessage('Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.');
+      setSubmitMessage('Hubo un error al enviar el mensaje. Por favor, intenta nuevamente o contáctanos directamente por teléfono.');
       console.error('Error al enviar el formulario:', error);
     } finally {
       setIsSubmitting(false);
