@@ -1,7 +1,0 @@
-<svg width="200" height="100" xmlns="http://www.w3.org/2000/svg">
-  <rect width="200" height="100" fill="transparent"/>
-  <g transform="translate(20, 20)">
-    <path d="M30,30 Q60,10 80,30 Q100,50 80,70 Q60,90 30,70 Q10,50 30,30" fill="#FFD700" stroke="none"/>
-    <text x="20" y="120" font-family="Montserrat, sans-serif" font-size="28" font-weight="bold" fill="#FFFFFF">think deep</text>
-  </g>
-</svg> 

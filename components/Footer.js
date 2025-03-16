@@ -81,7 +81,7 @@ const Footer = () => {
             <ul className="space-y-3 text-gray-400">
               <li>
                 <p className="font-medium text-white">Dirección</p>
-                <p>Rio Amazonas 110, San Cristobal, Dolores Hidalgo C.I.N, Guanajuato 5</p>
+                <p>Rio Amazonas 110, San Cristobal, Dolores Hidalgo C.I.N, Guanajuato</p>
               </li>
               <li>
                 <p className="font-medium text-white">Teléfono</p>
