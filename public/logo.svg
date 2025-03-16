@@ -1,6 +1,7 @@
 <svg width="200" height="100" xmlns="http://www.w3.org/2000/svg">
-  <g>
-    <path d="M50,20 Q80,5 100,20 Q120,35 100,50 Q80,65 50,50 Q30,35 50,20" fill="#FFD700" stroke="none" stroke-width="0"/>
-    <text x="50" y="90" font-family="Montserrat, sans-serif" font-size="24" font-weight="bold" fill="#FFFFFF">think deep</text>
+  <rect width="200" height="100" fill="transparent"/>
+  <g transform="translate(20, 20)">
+    <path d="M30,30 Q60,10 80,30 Q100,50 80,70 Q60,90 30,70 Q10,50 30,30" fill="#FFD700" stroke="none"/>
+    <text x="20" y="120" font-family="Montserrat, sans-serif" font-size="28" font-weight="bold" fill="#FFFFFF">think deep</text>
   </g>
 </svg> 
