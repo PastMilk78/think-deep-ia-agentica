@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-1">
             <div className="relative w-40 h-12 mb-4">
               <Image 
-                src="/logo.svg" 
+                src="/logo-original.png" 
                 alt="Think Deep Logo" 
                 width={160}
                 height={48}

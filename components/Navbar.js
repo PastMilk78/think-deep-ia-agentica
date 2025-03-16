@@ -9,7 +9,7 @@ const Navbar = () => {
         <Link href="/" className="flex items-center">
           <div className="relative w-40 h-12">
             <Image 
-              src="/logo.svg" 
+              src="/logo-original.png" 
               alt="Think Deep Logo" 
               width={160}
               height={48}

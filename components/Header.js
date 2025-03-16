@@ -6,7 +6,7 @@ const Header = () => {
     <header className="relative w-full h-[600px]">
       <div className="absolute inset-0">
         <Image
-          src="/header-image.svg"
+          src="/header-original.jpg"
           alt="Think Deep Office"
           fill
           style={{ objectFit: 'cover' }}
