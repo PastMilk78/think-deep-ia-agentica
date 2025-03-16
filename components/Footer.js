@@ -81,15 +81,15 @@ const Footer = () => {
             <ul className="space-y-3 text-gray-400">
               <li>
                 <p className="font-medium text-white">Dirección</p>
-                <p>Av. Principal 123, Edificio Empresarial, Piso 5</p>
+                <p>Rio Amazonas 110, San Cristobal, Dolores Hidalgo C.I.N, Guanajuato 5</p>
               </li>
               <li>
                 <p className="font-medium text-white">Teléfono</p>
-                <p>+123 456 7890</p>
+                <p>+52 418 177 4543</p>
               </li>
               <li>
                 <p className="font-medium text-white">Email</p>
-                <p>info@thinkdeep.com</p>
+                <p>salvador@thinkdeepgroup.com</p>
               </li>
               <li>
                 <p className="font-medium text-white">Horario de Atención</p>
