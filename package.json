@@ -19,6 +19,7 @@
   "author": "Think Deep",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
     "autoprefixer": "^10.4.0",
     "googleapis": "^146.0.0",
     "next": "^14.0.0",
@@ -27,5 +28,13 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwindcss": "^3.3.0"
+=======
+    "next": "^14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.3.0",
+    "postcss": "^8.4.0",
+    "autoprefixer": "^10.4.0"
+>>>>>>> 3216d605b968d66499f2d442a17c60fd1303d6a7
   }
 }

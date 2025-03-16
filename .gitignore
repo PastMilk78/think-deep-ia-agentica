@@ -29,7 +29,11 @@ yarn-error.log*
 .env.production.local
 
 # vercel
+<<<<<<< HEAD
 .vercel
 
 # Credenciales
 /credentials/ 
+=======
+.vercel 
+>>>>>>> 3216d605b968d66499f2d442a17c60fd1303d6a7
