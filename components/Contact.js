@@ -56,23 +56,23 @@ const Contact = () => {
           </div>
           
           <div>
-            <h3 className="text-2xl font-semibold mb-6 text-white">Información de Contacto</h3>
-            <div className="space-y-6">
-              <div>
-                <h4 className="font-medium text-lg mb-2 text-gray-300">Dirección</h4>
-                <p className="text-gray-400">Av. Principal 123, Edificio Empresarial, Piso 5</p>
-              </div>
-              <div>
-                <h4 className="font-medium text-lg mb-2 text-gray-300">Teléfono</h4>
-                <p className="text-gray-400">+123 456 7890</p>
-              </div>
-              <div>
-                <h4 className="font-medium text-lg mb-2 text-gray-300">Email</h4>
-                <p className="text-gray-400">info@thinkdeep.com</p>
-              </div>
-              <div>
-                <h4 className="font-medium text-lg mb-2 text-gray-300">Horario de Atención</h4>
-                <p className="text-gray-400">Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+            <h4 className="text-lg font-semibold mb-4">Información de Contacto</h4>
+            <ul className="space-y-3 text-gray-400">
+              <li>
+                <p className="font-medium text-white">Dirección</p>
+                <p>Rio Amazonas 110, San Cristobal, Dolores Hidalgo C.I.N, Guanajuato 5</p>
+              </li>
+              <li>
+                <p className="font-medium text-white">Teléfono</p>
+                <p>+52 418 177 4543</p>
+              </li>
+              <li>
+                <p className="font-medium text-white">Email</p>
+                <p>salvador@thinkdeepgroup.com</p>
+              </li>
+              <li>
+                <p className="font-medium text-white">Horario de Atención</p>
+                <p>Lunes a Sábado: 9:00 AM - 6:00 PM</p>
               </div>
             </div>
           </div>
