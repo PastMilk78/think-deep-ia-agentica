@@ -9,10 +9,13 @@ export default async function handler(req, res) {
   }
 
   try {
+    console.log('Recibida solicitud de contacto (método original)');
     const { name, email, company, message } = req.body;
+    console.log('Datos recibidos:', { name, email, company });
 
     // Validar los campos requeridos
     if (!name || !email || !company || !message) {
+      console.log('Error: Campos incompletos');
       return res.status(400).json({ error: 'Todos los campos son requeridos' });
     }
 
@@ -25,12 +28,14 @@ export default async function handler(req, res) {
       });
     }
 
+    console.log('Decodificando credenciales de Google');
     let credentials;
     try {
       // Decodificar las credenciales desde Base64
       credentials = JSON.parse(
         Buffer.from(process.env.GOOGLE_CREDENTIALS, "base64").toString("utf-8")
       );
+      console.log('Credenciales decodificadas correctamente');
     } catch (error) {
       console.error('Error al decodificar credenciales de variable de entorno:', error);
       return res.status(500).json({ 
@@ -39,6 +44,7 @@ export default async function handler(req, res) {
       });
     }
 
+    console.log('Configurando cliente JWT');
     // Configurar la autenticación con JWT
     const jwtClient = new google.auth.JWT(
       credentials.client_email,
@@ -48,12 +54,15 @@ export default async function handler(req, res) {
       'salvador@thinkdeepgroup.com' // El correo que se impersonará
     );
 
+    console.log('Autenticando con Google');
     // Autenticar con las credenciales
     await jwtClient.authorize();
+    console.log('Autenticación exitosa');
 
     // Crear cliente de Gmail
     const gmail = google.gmail({ version: 'v1', auth: jwtClient });
 
+    console.log('Creando contenido del correo');
     // Crear el contenido del correo
     const emailContent = `
 From: Think Deep Website <${credentials.client_email}>
@@ -75,18 +84,35 @@ Content-Type: text/html; charset=utf-8
       .replace(/\//g, '_')
       .replace(/=+$/, '');
 
+    console.log('Enviando correo a: salvador@thinkdeepgroup.com');
     // Enviar el correo
-    await gmail.users.messages.send({
+    const response = await gmail.users.messages.send({
       userId: 'me',
       requestBody: {
         raw: encodedEmail,
       },
     });
+    console.log('Correo enviado exitosamente:', response.data.id);
 
     // Responder con éxito
-    return res.status(200).json({ success: true, message: 'Mensaje enviado con éxito' });
+    return res.status(200).json({ 
+      success: true, 
+      message: 'Mensaje enviado con éxito',
+      messageId: response.data.id
+    });
   } catch (error) {
     console.error('Error al enviar el correo:', error);
-    return res.status(500).json({ error: 'Error al enviar el mensaje', details: error.message });
+    console.error('Detalles del error:', error.message);
+    if (error.code) {
+      console.error('Código de error:', error.code);
+    }
+    if (error.response && error.response.data) {
+      console.error('Respuesta de la API:', error.response.data);
+    }
+    return res.status(500).json({ 
+      error: 'Error al enviar el mensaje', 
+      details: error.message,
+      code: error.code || 'unknown'
+    });
   }
 } 
