@@ -150,28 +150,28 @@ a {
   transform: translateX(-50%);
   width: 100px;
   height: 4px;
-  background-color: var(--secondary-color);
+  background-color: transparent; /* Eliminamos la línea plana amarilla */
   border-radius: 2px;
 }
 
 .uplight-title::before {
   content: '';
   position: absolute;
-  bottom: -10px;
+  bottom: -5px;
   left: 50%;
   transform: translateX(-50%);
-  width: 120px;
-  height: 80px;
+  width: 150px;
+  height: 100px;
   background: radial-gradient(
     ellipse at bottom,
     var(--intense-glow-color) 0%,
-    rgba(255, 215, 0, 0.7) 20%,
-    rgba(255, 215, 0, 0.4) 40%,
-    rgba(255, 215, 0, 0.1) 60%,
+    rgba(255, 215, 0, 0.8) 20%,
+    rgba(255, 215, 0, 0.5) 40%,
+    rgba(255, 215, 0, 0.2) 60%,
     transparent 80%
   );
-  filter: blur(8px);
-  opacity: 0.8;
+  filter: blur(6px);
+  opacity: 0.9;
   z-index: -1;
   pointer-events: none;
 }
