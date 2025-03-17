@@ -128,6 +128,7 @@ a {
     0 0 15px var(--glow-color);
   transform: scaleX(0.8);
   transition: all 0.4s ease;
+  border-radius: 50% / 100%;
 }
 
 .highlight-underline:hover::after {
@@ -177,6 +178,7 @@ a {
   opacity: 0.9;
   z-index: -2;
   pointer-events: none;
+  border-radius: 50% / 100%;
 }
 
 /* Efecto de spotlight para textos importantes */
@@ -194,15 +196,18 @@ a {
   left: -100%;
   width: 200%;
   height: 100%;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    rgba(255, 215, 0, 0.4) 25%, 
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255, 215, 0, 0.2) 25%,
     rgba(255, 215, 0, 0.6) 50%,
     rgba(255, 215, 0, 0.4) 75%,
     transparent 100%
   );
   animation: light-sweep 4s ease-in-out infinite;
   filter: blur(3px);
+  border-radius: 50% / 100%;
+  filter: blur(5px);
+  opacity: 0.9;
 }
 
 @keyframes light-sweep {
@@ -250,6 +255,9 @@ a {
   filter: blur(5px);
   z-index: 1;
   pointer-events: none;
+  border-radius: 50% / 100%;
+  filter: blur(8px);
+  opacity: 0.9;
 }
 
 @keyframes fullpage-light-sweep {
@@ -425,6 +433,7 @@ a {
   z-index: -2;
   pointer-events: none;
   animation: pulse-glow 3s ease-in-out infinite alternate;
+  border-radius: 50% / 100%;
 }
 
 @keyframes pulse-glow {
@@ -484,18 +493,17 @@ a {
   transform: perspective(100px) rotateX(40deg) scale(1.2, 0.7);
   transform-origin: center top;
   animation: light-pulse 4s ease-in-out infinite alternate;
+  border-radius: 50% / 100%;
 }
 
 @keyframes light-pulse {
   0% {
-    opacity: 0.8;
+    opacity: 0.6;
     filter: blur(15px);
-    transform: perspective(100px) rotateX(40deg) scale(1.2, 0.7);
   }
   100% {
-    opacity: 1;
+    opacity: 0.9;
     filter: blur(25px);
-    transform: perspective(100px) rotateX(40deg) scale(1.3, 0.8);
   }
 }
 
@@ -525,6 +533,9 @@ a {
   filter: blur(5px);
   z-index: 1;
   pointer-events: none;
+  border-radius: 50% / 100%;
+  filter: blur(8px);
+  opacity: 0.9;
 }
 
 @keyframes subtitle-light-sweep {
