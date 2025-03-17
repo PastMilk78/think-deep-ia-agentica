@@ -196,7 +196,7 @@ export default async function handler(req, res) {
     try {
       // Primera llamada para obtener la respuesta del asistente
       const response = await openai.chat.completions.create({
-        model: 'gpt-3.5-turbo',
+        model: 'gpt-4o',
         messages: apiMessages,
         functions: functions,
         function_call: 'auto',
@@ -229,7 +229,7 @@ export default async function handler(req, res) {
 
         // Segunda llamada para obtener la respuesta final
         const secondResponse = await openai.chat.completions.create({
-          model: 'gpt-3.5-turbo',
+          model: 'gpt-4o',
           messages: apiMessages,
         });
 
