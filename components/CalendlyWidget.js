@@ -22,7 +22,7 @@ const CalendlyWidget = () => {
       <div className="max-w-4xl mx-auto">
         <div 
           className="calendly-inline-widget" 
-          data-url="https://calendly.com/thinkdeep/30min" 
+          data-url="https://calendly.com/pastillasdeafrecho78/agenda-td" 
           style={{ minWidth: '320px', height: '630px' }}
         ></div>
       </div>
