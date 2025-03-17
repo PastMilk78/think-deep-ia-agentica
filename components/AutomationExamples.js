@@ -13,22 +13,22 @@ const AutomationExamples = () => {
       tooltip: 'Diseño web moderno'
     },
     {
-      title: 'Blizmar Joyas - Frateli Joyería',
-      description: 'Tienda en línea para Frateli Joyería Inc. con catálogo de productos, sistema de pagos integrado y panel de administración personalizado para gestionar inventario.',
-      image: '/logo-original.png',
-      tags: ['E-commerce', 'React', 'Stripe'],
-      category: 'E-commerce',
+      title: 'Frateli Joyería',
+      description: 'Asesoramos a esta joyería para llevar sus ventas del local físico al mundo digital. Implementamos estrategias de marketing digital, catálogo en línea y sistema de gestión de inventario personalizado.',
+      image: '/frateli-logo.png',
+      tags: ['E-commerce', 'Marketing Digital', 'Gestión de Inventario'],
+      category: 'Transformación Digital',
       icon: '💎',
-      tooltip: 'Tienda de joyas'
+      tooltip: 'Joyería premium'
     },
     {
       title: 'Pavido Navido Mariscos',
-      description: 'Aplicación web y móvil para cadena de restaurantes de mariscos, con sistema de reservas, menú digital y programa de fidelización de clientes.',
-      image: '/favicon.png',
-      tags: ['App Híbrida', 'React Native', 'Firebase'],
-      category: 'Aplicación',
+      description: 'Asesoramos este proyecto desde su concepción como dark kitchen hasta convertirse en un exitoso restaurante de mariscos. Desarrollamos su identidad de marca, estrategia de negocio y presencia digital.',
+      image: '/pavido-logo.jpg',
+      tags: ['Asesoría de Negocio', 'Branding', 'Marketing Digital'],
+      category: 'Emprendimiento',
       icon: '🦐',
-      tooltip: 'App de restaurante'
+      tooltip: 'Mariscos frescos'
     },
   ];
 
