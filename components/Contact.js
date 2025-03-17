@@ -118,7 +118,7 @@ const Contact = () => {
     <section id="contacto" className="section bg-black">
       <div className="container mx-auto">
         <h2 className="section-title text-center">
-          <ScrollTriggerLight threshold={0.3}>
+          <ScrollTriggerLight threshold={0.6} delay={600}>
             <span className="glow-title subtitle-light-container">Contáctanos</span>
           </ScrollTriggerLight>
         </h2>

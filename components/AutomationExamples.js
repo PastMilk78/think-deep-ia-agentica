@@ -37,7 +37,7 @@ const AutomationExamples = () => {
     <section className="section bg-gray-900">
       <div className="container mx-auto">
         <h2 className="section-title text-center">
-          <ScrollTriggerLight threshold={0.3}>
+          <ScrollTriggerLight threshold={0.6} delay={600}>
             <span className="glow-title subtitle-light-container">Proyectos Destacados</span>
           </ScrollTriggerLight>
         </h2>
@@ -49,7 +49,7 @@ const AutomationExamples = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <ScrollTriggerLight key={index} threshold={0.2} rootMargin="0px 0px -50px 0px">
+            <ScrollTriggerLight key={index} threshold={0.3} rootMargin="0px 0px -50px 0px" delay={600 + index * 150}>
               <div 
                 className="glow-border bg-black rounded-lg overflow-hidden shadow-lg transition-all duration-300 group emoji-hover"
               >

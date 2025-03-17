@@ -204,10 +204,11 @@ a {
     transparent 100%
   );
   animation: light-sweep 4s ease-in-out infinite;
-  animation-play-state: paused; /* Inicialmente pausada */
-  filter: blur(3px);
+  animation-play-state: paused;
+  filter: blur(5px);
   border-radius: 50% / 100%;
-  opacity: 0.9;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
 
 @keyframes light-sweep {
@@ -252,12 +253,13 @@ a {
     transparent 100%
   );
   animation: fullpage-light-sweep 8s ease-in-out infinite;
-  animation-play-state: paused; /* Inicialmente pausada */
-  filter: blur(5px);
+  animation-play-state: paused;
+  filter: blur(8px);
   z-index: 1;
   pointer-events: none;
   border-radius: 50% / 100%;
-  opacity: 0.9;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
 
 @keyframes fullpage-light-sweep {
@@ -530,12 +532,13 @@ a {
     transparent 100%
   );
   animation: subtitle-light-sweep 8s ease-in-out infinite;
-  animation-play-state: paused; /* Inicialmente pausada */
+  animation-play-state: paused;
   filter: blur(8px);
   z-index: 1;
   pointer-events: none;
   border-radius: 50% / 100%;
-  opacity: 0.9;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
 
 @keyframes subtitle-light-sweep {
@@ -555,6 +558,8 @@ a {
 .animate-light .spotlight-text::before,
 .animate-light.spotlight-text::before {
   animation-play-state: running;
+  opacity: 0.9;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .pause-light .subtitle-light-container::before,
@@ -564,4 +569,6 @@ a {
 .pause-light .spotlight-text::before,
 .pause-light.spotlight-text::before {
   animation-play-state: paused;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
 } 

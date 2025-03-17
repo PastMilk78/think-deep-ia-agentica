@@ -21,11 +21,11 @@ const Header = () => {
       <div className="bg-gradient-to-b from-gray-900 to-black py-16">
         <div className="container mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">
-            <ScrollTriggerLight threshold={0.5}>
+            <ScrollTriggerLight threshold={0.7} delay={600}>
               <span className="glow-title subtitle-light-container">Automatización de Workflow</span>
             </ScrollTriggerLight>
             <br />
-            con <ScrollTriggerLight threshold={0.5}>
+            con <ScrollTriggerLight threshold={0.7} delay={800}>
               <span className="text-yellow-400 subtitle-light-container">IA Agéntica</span>
             </ScrollTriggerLight>
           </h1>

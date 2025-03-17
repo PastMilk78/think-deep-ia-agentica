@@ -46,7 +46,7 @@ const Benefits = () => {
     <section id="beneficios" className="section bg-black">
       <div className="container mx-auto">
         <h2 className="section-title text-center">
-          <ScrollTriggerLight threshold={0.3}>
+          <ScrollTriggerLight threshold={0.6} delay={600}>
             <span className="glow-title subtitle-light-container">Beneficios</span>
           </ScrollTriggerLight>
         </h2>
@@ -58,7 +58,7 @@ const Benefits = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
-            <ScrollTriggerLight key={index} threshold={0.2} rootMargin="0px 0px -50px 0px">
+            <ScrollTriggerLight key={index} threshold={0.3} rootMargin="0px 0px -50px 0px" delay={600 + index * 100}>
               <div 
                 className="glow-border bg-gray-900 p-6 rounded-lg transition-all duration-300 hover:scale-105 relative overflow-hidden group emoji-hover"
               >
