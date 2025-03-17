@@ -35,7 +35,7 @@ export default async function handler(req, res) {
 
     // Inicializar el cliente de OpenAI con la clave API
     const openai = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY || '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',
+      apiKey: process.env.OPENAI_API_KEY,
     });
 
     // Preparar los mensajes para la API
