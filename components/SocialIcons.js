@@ -59,4 +59,8 @@ const SocialIcons = () => {
   );
 };
 
+<<<<<<< HEAD
 export default SocialIcons; 
+=======
+export default SocialIcons;
+>>>>>>> 188c03147bc202faab9801e7be2296d1f1bc1bab

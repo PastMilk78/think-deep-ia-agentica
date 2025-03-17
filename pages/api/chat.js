@@ -52,7 +52,11 @@ export default async function handler(req, res) {
 
     // Llamar a la API de OpenAI
     const completion = await openai.chat.completions.create({
+<<<<<<< HEAD
       model: 'gpt-3.5-turbo',
+=======
+      model: 'gpt-4o',
+>>>>>>> 188c03147bc202faab9801e7be2296d1f1bc1bab
       messages: apiMessages,
       temperature: 0.7,
       max_tokens: 500,

@@ -24,6 +24,10 @@
     "googleapis": "^146.0.0",
     "next": "^14.0.0",
     "nodemailer": "^6.10.0",
+<<<<<<< HEAD
+=======
+    "openai": "^4.87.3",
+>>>>>>> 188c03147bc202faab9801e7be2296d1f1bc1bab
     "postcss": "^8.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

@@ -30,4 +30,4 @@ const CalendlyWidget = () => {
   );
 };
 
-export default CalendlyWidget; 
+export default CalendlyWidget;
