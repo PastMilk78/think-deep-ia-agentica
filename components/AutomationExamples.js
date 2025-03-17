@@ -40,7 +40,7 @@ const AutomationExamples = () => {
         </h2>
         <div className="text-center max-w-3xl mx-auto mb-12">
           <p className="text-lg text-gray-300">
-            Conoce algunos de nuestros proyectos más recientes en automatización, desarrollo web y desarrollo de software
+            <span className="text-highlight">Conoce algunos de nuestros proyectos más recientes en automatización, desarrollo web y desarrollo de software</span>
           </p>
         </div>
 

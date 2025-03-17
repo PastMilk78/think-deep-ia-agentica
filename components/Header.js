@@ -25,10 +25,10 @@ const Header = () => {
           </h1>
           <div className="max-w-3xl mx-auto mb-10">
             <p className="text-xl md:text-2xl text-gray-300">
-              Optimiza tus procesos empresariales con soluciones inteligentes y personalizadas
+              <span className="text-highlight">Optimiza tus procesos empresariales con soluciones inteligentes y personalizadas</span>
             </p>
             <p className="text-xl md:text-2xl text-gray-300 mt-2">
-              Desarrollo de Software • Desarrollo Web • Automatización
+              <span className="text-highlight">Desarrollo de Software • Desarrollo Web • Automatización</span>
             </p>
           </div>
           <Link href="/#servicios">

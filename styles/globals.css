@@ -261,6 +261,48 @@ a {
   }
 }
 
+/* Nueva clase para iluminar solo textos específicos */
+.text-highlight {
+  position: relative;
+  z-index: 2;
+}
+
+.text-highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--secondary-color);
+  box-shadow: 
+    0 0 5px 2px rgba(255, 215, 0, 0.7),
+    0 0 10px 4px rgba(255, 215, 0, 0.5);
+  z-index: -1;
+}
+
+.text-highlight::before {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background: radial-gradient(
+    ellipse at top,
+    rgba(255, 215, 0, 0.9) 0%,
+    rgba(255, 215, 0, 0.7) 20%,
+    rgba(255, 215, 0, 0.5) 40%,
+    rgba(255, 215, 0, 0.3) 60%,
+    rgba(255, 215, 0, 0.1) 80%,
+    transparent 100%
+  );
+  filter: blur(10px);
+  opacity: 0.9;
+  z-index: -2;
+  pointer-events: none;
+}
+
 /* Efecto de borde de luz brillante */
 .glow-border {
   position: relative;
