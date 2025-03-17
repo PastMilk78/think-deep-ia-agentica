@@ -96,4 +96,31 @@ Para que el envío de correos funcione en Vercel, configura la variable de entor
 
 ## Contacto
 
-Para cualquier consulta, contacta a salvador@thinkdeepgroup.com 
+Para cualquier consulta, contacta a salvador@thinkdeepgroup.com
+
+## Configuración de Variables de Entorno
+
+### Desarrollo Local
+
+1. Crea un archivo `.env.local` basado en `.env.example`
+2. Completa las variables con tus valores
+
+### Despliegue en Vercel
+
+Para el despliegue en Vercel, configura las siguientes variables de entorno en la configuración del proyecto:
+
+- `NEXT_PUBLIC_SITE_NAME`: Nombre del sitio
+- `NEXT_PUBLIC_SITE_DESCRIPTION`: Descripción del sitio
+- `NEXT_PUBLIC_SITE_URL`: URL del sitio
+
+- `EMAIL_USER`: Usuario de correo para Nodemailer
+- `EMAIL_PASSWORD`: Contraseña de aplicación para Nodemailer
+- `EMAIL_PASS`: Contraseña alternativa para Nodemailer (si es necesario)
+
+- `OPENAI_API_KEY`: Clave API de OpenAI para el chat de IA
+
+## Importante
+
+- Nunca incluyas valores sensibles directamente en el código
+- No subas el archivo `.env.local` al repositorio (ya está incluido en `.gitignore`)
+- Para Gmail, usa una "contraseña de aplicación" generada en la configuración de seguridad de tu cuenta de Google 
