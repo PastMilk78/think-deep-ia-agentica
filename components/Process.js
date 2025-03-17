@@ -45,9 +45,11 @@ const Process = () => {
         <h2 className="section-title text-center">
           <span className="glow-title">Nuestro Proceso</span>
         </h2>
-        <p className="text-center text-lg mb-12 max-w-3xl mx-auto text-gray-300">
-          <span className="text-light-sweep">Un enfoque metódico para implementar soluciones de IA agéntica en tu organización</span>
-        </p>
+        <div className="continuous-light-container text-center max-w-3xl mx-auto mb-12">
+          <p className="text-lg text-gray-300">
+            Un enfoque metódico para implementar soluciones de IA agéntica en tu organización
+          </p>
+        </div>
         
         <div className="space-y-8">
           {steps.map((step, index) => (

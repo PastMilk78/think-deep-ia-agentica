@@ -46,9 +46,11 @@ const Services = () => {
         <h2 className="section-title text-center">
           <span className="glow-title">Nuestros Servicios</span>
         </h2>
-        <p className="text-center text-lg mb-12 max-w-3xl mx-auto text-gray-300">
-          Ofrecemos soluciones avanzadas de <span className="text-light-sweep">automatización, desarrollo de software y desarrollo web</span> para optimizar tus procesos empresariales
-        </p>
+        <div className="continuous-light-container text-center max-w-3xl mx-auto mb-12">
+          <p className="text-lg text-gray-300">
+            Ofrecemos soluciones avanzadas de automatización, desarrollo de software y desarrollo web para optimizar tus procesos empresariales
+          </p>
+        </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (

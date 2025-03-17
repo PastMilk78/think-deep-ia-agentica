@@ -214,14 +214,19 @@ a {
   }
 }
 
-/* Nuevo efecto de luz que recorre todo el texto */
+/* Efecto de luz que recorre todo el texto como un solo haz */
 .text-light-sweep {
   position: relative;
   display: inline-block;
+}
+
+/* Nuevo efecto de luz continuo para todo el contenedor */
+.continuous-light-container {
+  position: relative;
   overflow: hidden;
 }
 
-.text-light-sweep::before {
+.continuous-light-container::before {
   content: '';
   position: absolute;
   top: 0;
@@ -230,20 +235,20 @@ a {
   height: 100%;
   background: linear-gradient(90deg, 
     transparent 0%, 
-    rgba(255, 215, 0, 0.3) 25%, 
-    rgba(255, 215, 0, 0.5) 50%,
-    rgba(255, 215, 0, 0.3) 75%,
+    rgba(255, 215, 0, 0.2) 20%, 
+    rgba(255, 215, 0, 0.6) 50%,
+    rgba(255, 215, 0, 0.2) 80%,
     transparent 100%
   );
-  animation: full-text-sweep 6s ease-in-out infinite;
-  filter: blur(4px);
+  animation: continuous-light-sweep 8s ease-in-out infinite;
+  filter: blur(5px);
   z-index: 1;
   pointer-events: none;
 }
 
-@keyframes full-text-sweep {
+@keyframes continuous-light-sweep {
   0% {
-    left: -200%;
+    left: -100%;
   }
   100% {
     left: 100%;

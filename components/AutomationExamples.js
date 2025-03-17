@@ -38,9 +38,11 @@ const AutomationExamples = () => {
         <h2 className="section-title text-center">
           <span className="glow-title">Proyectos Destacados</span>
         </h2>
-        <p className="text-center text-lg mb-12 max-w-3xl mx-auto text-gray-300">
-          Conoce algunos de nuestros proyectos más recientes en <span className="text-light-sweep">automatización, desarrollo web y desarrollo de software</span>
-        </p>
+        <div className="continuous-light-container text-center max-w-3xl mx-auto mb-12">
+          <p className="text-lg text-gray-300">
+            Conoce algunos de nuestros proyectos más recientes en automatización, desarrollo web y desarrollo de software
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (

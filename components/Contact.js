@@ -119,9 +119,11 @@ const Contact = () => {
         <h2 className="section-title text-center">
           <span className="glow-title">Contáctanos</span>
         </h2>
-        <p className="text-center text-lg mb-12 max-w-3xl mx-auto text-gray-300">
-          <span className="text-light-sweep">Estamos listos para ayudarte a transformar tu negocio con soluciones de IA agéntica</span>
-        </p>
+        <div className="continuous-light-container text-center max-w-3xl mx-auto mb-12">
+          <p className="text-lg text-gray-300">
+            Estamos listos para ayudarte a transformar tu negocio con soluciones de IA agéntica
+          </p>
+        </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
