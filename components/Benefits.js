@@ -42,10 +42,10 @@ const Benefits = () => {
   ];
 
   return (
-    <section id="beneficios" className="section bg-black fullpage-light-section">
+    <section id="beneficios" className="section bg-black">
       <div className="container mx-auto">
         <h2 className="section-title text-center">
-          <span className="glow-title">Beneficios</span>
+          <span className="glow-title subtitle-light-container">Beneficios</span>
         </h2>
         <div className="text-center max-w-3xl mx-auto mb-12">
           <p className="text-lg text-gray-300">

@@ -40,10 +40,10 @@ const Process = () => {
   ];
 
   return (
-    <section id="proceso" className="section bg-primary fullpage-light-section">
+    <section id="proceso" className="section bg-primary">
       <div className="container mx-auto">
         <h2 className="section-title text-center">
-          <span className="glow-title">Nuestro Proceso</span>
+          <span className="glow-title subtitle-light-container">Nuestro Proceso</span>
         </h2>
         <div className="text-center max-w-3xl mx-auto mb-12">
           <p className="text-lg text-gray-300">

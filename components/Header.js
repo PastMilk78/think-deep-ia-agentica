@@ -17,11 +17,11 @@ const Header = () => {
       </div>
       
       {/* Sección de texto y botón */}
-      <div className="bg-gradient-to-b from-gray-900 to-black py-16 fullpage-light-section">
+      <div className="bg-gradient-to-b from-gray-900 to-black py-16">
         <div className="container mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">
-            <span className="glow-title">Automatización de Workflow</span><br />
-            con <span className="text-yellow-400">IA Agéntica</span>
+            <span className="glow-title subtitle-light-container">Automatización de Workflow</span><br />
+            con <span className="text-yellow-400 subtitle-light-container">IA Agéntica</span>
           </h1>
           <div className="max-w-3xl mx-auto mb-10">
             <p className="text-xl md:text-2xl text-gray-300">

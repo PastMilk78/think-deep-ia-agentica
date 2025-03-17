@@ -41,10 +41,10 @@ const Services = () => {
   ];
 
   return (
-    <section id="servicios" className="section bg-primary fullpage-light-section">
+    <section id="servicios" className="section bg-primary">
       <div className="container mx-auto">
         <h2 className="section-title text-center">
-          <span className="glow-title">Nuestros Servicios</span>
+          <span className="glow-title subtitle-light-container">Nuestros Servicios</span>
         </h2>
         <div className="text-center max-w-3xl mx-auto mb-12">
           <p className="text-lg text-gray-300">
