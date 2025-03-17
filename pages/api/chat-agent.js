@@ -27,60 +27,51 @@ Directrices:
 8. Si te preguntan sobre precios específicos, indica que varían según las necesidades del cliente y recomienda contactar directamente para obtener un presupuesto personalizado.
 `;
 
-// Definición de herramientas para el agente
-const tools = [
+// Definición de funciones para el asistente
+const functions = [
   {
-    type: "function",
-    function: {
-      name: "get_contact_info",
-      description: "Obtiene la información de contacto de Think Deep",
-      parameters: {
-        type: "object",
-        properties: {},
-        required: []
-      }
+    name: "get_contact_info",
+    description: "Obtiene la información de contacto de Think Deep",
+    parameters: {
+      type: "object",
+      properties: {},
+      required: []
     }
   },
   {
-    type: "function",
-    function: {
-      name: "get_services_info",
-      description: "Obtiene información detallada sobre los servicios que ofrece Think Deep",
-      parameters: {
-        type: "object",
-        properties: {
-          service_name: {
-            type: "string",
-            enum: ["Automatización de Procesos", "Desarrollo de Software", "Desarrollo Web", "Integración de Sistemas", "Análisis Predictivo", "Asistentes Virtuales Personalizados"],
-            description: "El nombre del servicio específico sobre el que se quiere información"
-          }
-        },
-        required: []
-      }
+    name: "get_services_info",
+    description: "Obtiene información detallada sobre los servicios que ofrece Think Deep",
+    parameters: {
+      type: "object",
+      properties: {
+        service_name: {
+          type: "string",
+          enum: ["Automatización de Procesos", "Desarrollo de Software", "Desarrollo Web", "Integración de Sistemas", "Análisis Predictivo", "Asistentes Virtuales Personalizados"],
+          description: "El nombre del servicio específico sobre el que se quiere información"
+        }
+      },
+      required: []
     }
   },
   {
-    type: "function",
-    function: {
-      name: "get_process_info",
-      description: "Obtiene información sobre el proceso de trabajo de Think Deep",
-      parameters: {
-        type: "object",
-        properties: {
-          step_name: {
-            type: "string",
-            enum: ["Análisis y Diagnóstico", "Diseño de Solución", "Desarrollo e Implementación", "Pruebas y Optimización", "Capacitación y Soporte"],
-            description: "El nombre de la etapa específica del proceso sobre la que se quiere información"
-          }
-        },
-        required: []
-      }
+    name: "get_process_info",
+    description: "Obtiene información sobre el proceso de trabajo de Think Deep",
+    parameters: {
+      type: "object",
+      properties: {
+        step_name: {
+          type: "string",
+          enum: ["Análisis y Diagnóstico", "Diseño de Solución", "Desarrollo e Implementación", "Pruebas y Optimización", "Capacitación y Soporte"],
+          description: "El nombre de la etapa específica del proceso sobre la que se quiere información"
+        }
+      },
+      required: []
     }
   }
 ];
 
-// Implementaciones de las funciones de herramientas
-const toolFunctions = {
+// Implementaciones de las funciones
+const functionImplementations = {
   get_contact_info: async () => {
     return {
       email: "salvador@thinkdeepgroup.com",
@@ -173,6 +164,7 @@ const toolFunctions = {
 };
 
 export default async function handler(req, res) {
+  // Solo permitir solicitudes POST
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Método no permitido' });
   }
@@ -182,6 +174,12 @@ export default async function handler(req, res) {
 
     if (!messages || !Array.isArray(messages)) {
       return res.status(400).json({ error: 'Formato de mensajes inválido' });
+    }
+
+    // Verificar que la clave API esté configurada
+    if (!process.env.OPENAI_API_KEY) {
+      console.error('Error: OPENAI_API_KEY no está configurada');
+      return res.status(500).json({ error: 'Error de configuración del servidor: API key no disponible' });
     }
 
     // Inicializar el cliente de OpenAI con la clave API
@@ -195,61 +193,62 @@ export default async function handler(req, res) {
       ...messages
     ];
 
-    // Crear un asistente con el SDK de agentes
-    const runner = openai.beta.chat.completions.runTools({
-      model: 'gpt-4o',
-      messages: apiMessages,
-      tools: tools,
-      tool_choice: 'auto',
-      temperature: 0.7,
-      max_tokens: 500,
-    });
+    try {
+      // Primera llamada para obtener la respuesta del asistente
+      const response = await openai.chat.completions.create({
+        model: 'gpt-3.5-turbo',
+        messages: apiMessages,
+        functions: functions,
+        function_call: 'auto',
+      });
 
-    // Procesar la respuesta del asistente
-    const finalResponse = await processAgentResponse(runner);
+      // Obtener la respuesta del asistente
+      const responseMessage = response.choices[0].message;
 
-    // Devolver la respuesta
-    return res.status(200).json({ message: finalResponse });
-  } catch (error) {
-    console.error('Error en la API de chat-agent:', error);
-    return res.status(500).json({ 
-      error: 'Error al procesar la solicitud', 
-      details: error.message 
-    });
-  }
-}
+      // Verificar si el asistente quiere llamar a una función
+      if (responseMessage.function_call) {
+        // Obtener los detalles de la llamada a la función
+        const functionName = responseMessage.function_call.name;
+        const functionArgs = JSON.parse(responseMessage.function_call.arguments || '{}');
 
-// Función para procesar la respuesta del agente
-async function processAgentResponse(runner) {
-  let response = await runner;
-  
-  // Si el asistente quiere llamar a una herramienta
-  while (response.tool_calls && response.tool_calls.length > 0) {
-    const toolCalls = response.tool_calls;
-    const toolResults = [];
+        // Verificar si la función existe
+        if (!functionImplementations[functionName]) {
+          throw new Error(`Función no encontrada: ${functionName}`);
+        }
 
-    // Procesar cada llamada a herramienta
-    for (const toolCall of toolCalls) {
-      const functionName = toolCall.function.name;
-      const functionArgs = JSON.parse(toolCall.function.arguments || '{}');
-      
-      // Ejecutar la función de la herramienta
-      if (toolFunctions[functionName]) {
-        const result = await toolFunctions[functionName](functionArgs);
-        toolResults.push({
-          tool_call_id: toolCall.id,
-          role: 'tool',
-          content: JSON.stringify(result),
+        // Ejecutar la función
+        const functionResult = await functionImplementations[functionName](functionArgs);
+
+        // Añadir la llamada a la función y su resultado a los mensajes
+        apiMessages.push(responseMessage);
+        apiMessages.push({
+          role: 'function',
+          name: functionName,
+          content: JSON.stringify(functionResult),
+        });
+
+        // Segunda llamada para obtener la respuesta final
+        const secondResponse = await openai.chat.completions.create({
+          model: 'gpt-3.5-turbo',
+          messages: apiMessages,
+        });
+
+        // Devolver la respuesta final
+        return res.status(200).json({ 
+          message: secondResponse.choices[0].message.content 
+        });
+      } else {
+        // Si no hay llamada a función, devolver la respuesta directamente
+        return res.status(200).json({ 
+          message: responseMessage.content 
         });
       }
+    } catch (openaiError) {
+      console.error('Error al llamar a la API de OpenAI:', openaiError);
+      return res.status(500).json({ error: `Error al procesar la solicitud: ${openaiError.message}` });
     }
-
-    // Continuar la conversación con los resultados de las herramientas
-    response = await runner.submitToolOutputs({
-      tool_outputs: toolResults,
-    });
+  } catch (error) {
+    console.error('Error en el servidor:', error);
+    return res.status(500).json({ error: `Error interno del servidor: ${error.message}` });
   }
-
-  // Devolver el contenido final
-  return response.content;
 } 
