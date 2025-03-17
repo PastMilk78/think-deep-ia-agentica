@@ -204,9 +204,9 @@ a {
     transparent 100%
   );
   animation: light-sweep 4s ease-in-out infinite;
+  animation-play-state: paused; /* Inicialmente pausada */
   filter: blur(3px);
   border-radius: 50% / 100%;
-  filter: blur(5px);
   opacity: 0.9;
 }
 
@@ -252,11 +252,11 @@ a {
     transparent 100%
   );
   animation: fullpage-light-sweep 8s ease-in-out infinite;
+  animation-play-state: paused; /* Inicialmente pausada */
   filter: blur(5px);
   z-index: 1;
   pointer-events: none;
   border-radius: 50% / 100%;
-  filter: blur(8px);
   opacity: 0.9;
 }
 
@@ -530,11 +530,11 @@ a {
     transparent 100%
   );
   animation: subtitle-light-sweep 8s ease-in-out infinite;
-  filter: blur(5px);
+  animation-play-state: paused; /* Inicialmente pausada */
+  filter: blur(8px);
   z-index: 1;
   pointer-events: none;
   border-radius: 50% / 100%;
-  filter: blur(8px);
   opacity: 0.9;
 }
 
@@ -545,4 +545,23 @@ a {
   100% {
     transform: translateX(100%);
   }
+}
+
+/* Clases para controlar la animación basada en scroll */
+.animate-light .subtitle-light-container::before,
+.animate-light.subtitle-light-container::before,
+.animate-light .fullpage-light-section::before,
+.animate-light.fullpage-light-section::before,
+.animate-light .spotlight-text::before,
+.animate-light.spotlight-text::before {
+  animation-play-state: running;
+}
+
+.pause-light .subtitle-light-container::before,
+.pause-light.subtitle-light-container::before,
+.pause-light .fullpage-light-section::before,
+.pause-light.fullpage-light-section::before,
+.pause-light .spotlight-text::before,
+.pause-light.spotlight-text::before {
+  animation-play-state: paused;
 } 

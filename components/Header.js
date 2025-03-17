@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import ScrollTriggerLight from './ScrollTriggerLight';
 
 const Header = () => {
   return (
@@ -20,8 +21,13 @@ const Header = () => {
       <div className="bg-gradient-to-b from-gray-900 to-black py-16">
         <div className="container mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">
-            <span className="glow-title subtitle-light-container">Automatización de Workflow</span><br />
-            con <span className="text-yellow-400 subtitle-light-container">IA Agéntica</span>
+            <ScrollTriggerLight threshold={0.5}>
+              <span className="glow-title subtitle-light-container">Automatización de Workflow</span>
+            </ScrollTriggerLight>
+            <br />
+            con <ScrollTriggerLight threshold={0.5}>
+              <span className="text-yellow-400 subtitle-light-container">IA Agéntica</span>
+            </ScrollTriggerLight>
           </h1>
           <div className="max-w-3xl mx-auto mb-10">
             <p className="text-xl md:text-2xl text-gray-300">

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ScrollTriggerLight from './ScrollTriggerLight';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -117,7 +118,9 @@ const Contact = () => {
     <section id="contacto" className="section bg-black">
       <div className="container mx-auto">
         <h2 className="section-title text-center">
-          <span className="glow-title subtitle-light-container">Contáctanos</span>
+          <ScrollTriggerLight threshold={0.3}>
+            <span className="glow-title subtitle-light-container">Contáctanos</span>
+          </ScrollTriggerLight>
         </h2>
         <div className="text-center max-w-3xl mx-auto mb-12">
           <p className="text-lg text-gray-300">
