@@ -46,7 +46,7 @@ const Process = () => {
           <span className="glow-title">Nuestro Proceso</span>
         </h2>
         <p className="text-center text-lg mb-12 max-w-3xl mx-auto text-gray-300">
-          Un enfoque metódico para implementar soluciones de IA agéntica en tu organización
+          <span className="text-light-sweep">Un enfoque metódico para implementar soluciones de IA agéntica en tu organización</span>
         </p>
         
         <div className="space-y-8">

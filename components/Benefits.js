@@ -48,7 +48,7 @@ const Benefits = () => {
           <span className="glow-title">Beneficios</span>
         </h2>
         <p className="text-center text-lg mb-12 max-w-3xl mx-auto text-gray-300">
-          Descubre cómo nuestras soluciones de IA agéntica pueden transformar tu negocio
+          <span className="text-light-sweep">Descubre cómo nuestras soluciones de IA agéntica pueden transformar tu negocio</span>
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

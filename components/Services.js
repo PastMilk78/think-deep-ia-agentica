@@ -47,7 +47,7 @@ const Services = () => {
           <span className="glow-title">Nuestros Servicios</span>
         </h2>
         <p className="text-center text-lg mb-12 max-w-3xl mx-auto text-gray-300">
-          Ofrecemos soluciones avanzadas de <span className="highlight-underline">automatización</span>, <span className="highlight-underline">desarrollo de software</span> y <span className="highlight-underline">desarrollo web</span> para optimizar tus procesos empresariales
+          Ofrecemos soluciones avanzadas de <span className="text-light-sweep">automatización, desarrollo de software y desarrollo web</span> para optimizar tus procesos empresariales
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

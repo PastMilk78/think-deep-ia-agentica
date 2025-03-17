@@ -24,8 +24,8 @@ const Header = () => {
             con <span className="text-yellow-400">IA Agéntica</span>
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-300 mb-10">
-            Optimiza tus procesos empresariales con soluciones inteligentes y personalizadas<br/>
-            <span className="spotlight-text">Desarrollo de Software • Desarrollo Web • Automatización</span>
+            <span className="text-light-sweep">Optimiza tus procesos empresariales con soluciones inteligentes y personalizadas</span><br/>
+            <span className="text-light-sweep">Desarrollo de Software • Desarrollo Web • Automatización</span>
           </p>
           <Link href="/#servicios">
             <button className="button text-lg px-8 py-4 shadow-lg hover:shadow-[0_0_15px_rgba(255,215,0,0.3)]">

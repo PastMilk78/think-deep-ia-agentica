@@ -120,7 +120,7 @@ const Contact = () => {
           <span className="glow-title">Contáctanos</span>
         </h2>
         <p className="text-center text-lg mb-12 max-w-3xl mx-auto text-gray-300">
-          Estamos listos para ayudarte a transformar tu negocio con soluciones de IA agéntica
+          <span className="text-light-sweep">Estamos listos para ayudarte a transformar tu negocio con soluciones de IA agéntica</span>
         </p>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">

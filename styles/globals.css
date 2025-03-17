@@ -192,22 +192,58 @@ a {
   position: absolute;
   top: 0;
   left: -100%;
-  width: 100%;
+  width: 200%;
   height: 100%;
   background: linear-gradient(90deg, 
     transparent 0%, 
-    rgba(255, 215, 0, 0.2) 50%, 
+    rgba(255, 215, 0, 0.4) 25%, 
+    rgba(255, 215, 0, 0.6) 50%,
+    rgba(255, 215, 0, 0.4) 75%,
     transparent 100%
   );
-  animation: light-sweep 3s ease-in-out infinite;
+  animation: light-sweep 4s ease-in-out infinite;
+  filter: blur(3px);
 }
 
 @keyframes light-sweep {
   0% {
-    left: -100%;
+    left: -200%;
   }
-  50% {
+  100% {
     left: 100%;
+  }
+}
+
+/* Nuevo efecto de luz que recorre todo el texto */
+.text-light-sweep {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.text-light-sweep::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 215, 0, 0.3) 25%, 
+    rgba(255, 215, 0, 0.5) 50%,
+    rgba(255, 215, 0, 0.3) 75%,
+    transparent 100%
+  );
+  animation: full-text-sweep 6s ease-in-out infinite;
+  filter: blur(4px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes full-text-sweep {
+  0% {
+    left: -200%;
   }
   100% {
     left: 100%;
