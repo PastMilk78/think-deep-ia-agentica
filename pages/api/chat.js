@@ -33,6 +33,12 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Formato de mensajes inválido' });
     }
 
+    // Verificar que la clave API esté configurada
+    if (!process.env.OPENAI_API_KEY) {
+      console.error('Error: OPENAI_API_KEY no está configurada');
+      return res.status(500).json({ error: 'Error de configuración del servidor: API key no disponible' });
+    }
+
     // Inicializar el cliente de OpenAI con la clave API
     const openai = new OpenAI({
       apiKey: process.env.OPENAI_API_KEY,
@@ -46,7 +52,7 @@ export default async function handler(req, res) {
 
     // Llamar a la API de OpenAI
     const completion = await openai.chat.completions.create({
-      model: 'gpt-4o',
+      model: 'gpt-3.5-turbo',
       messages: apiMessages,
       temperature: 0.7,
       max_tokens: 500,
