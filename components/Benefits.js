@@ -49,7 +49,7 @@ const Benefits = () => {
         </h2>
         <div className="text-center max-w-3xl mx-auto mb-12">
           <p className="text-lg text-gray-300">
-            <span className="text-highlight">Descubre cómo nuestras soluciones de IA agéntica pueden transformar tu negocio</span>
+            Descubre cómo nuestras soluciones de IA agéntica pueden transformar tu negocio
           </p>
         </div>
         

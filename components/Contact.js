@@ -121,7 +121,7 @@ const Contact = () => {
         </h2>
         <div className="text-center max-w-3xl mx-auto mb-12">
           <p className="text-lg text-gray-300">
-            <span className="text-highlight">Estamos listos para ayudarte a transformar tu negocio con soluciones de IA agéntica</span>
+            Estamos listos para ayudarte a transformar tu negocio con soluciones de IA agéntica
           </p>
         </div>
         
