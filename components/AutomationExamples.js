@@ -33,12 +33,12 @@ const AutomationExamples = () => {
   ];
 
   return (
-    <section className="section bg-gray-900">
+    <section className="section bg-gray-900 fullpage-light-section">
       <div className="container mx-auto">
         <h2 className="section-title text-center">
           <span className="glow-title">Proyectos Destacados</span>
         </h2>
-        <div className="continuous-light-container text-center max-w-3xl mx-auto mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-12">
           <p className="text-lg text-gray-300">
             Conoce algunos de nuestros proyectos más recientes en automatización, desarrollo web y desarrollo de software
           </p>

@@ -40,12 +40,12 @@ const Process = () => {
   ];
 
   return (
-    <section id="proceso" className="section bg-primary">
+    <section id="proceso" className="section bg-primary fullpage-light-section">
       <div className="container mx-auto">
         <h2 className="section-title text-center">
           <span className="glow-title">Nuestro Proceso</span>
         </h2>
-        <div className="continuous-light-container text-center max-w-3xl mx-auto mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-12">
           <p className="text-lg text-gray-300">
             Un enfoque metódico para implementar soluciones de IA agéntica en tu organización
           </p>

@@ -42,12 +42,12 @@ const Benefits = () => {
   ];
 
   return (
-    <section id="beneficios" className="section bg-black">
+    <section id="beneficios" className="section bg-black fullpage-light-section">
       <div className="container mx-auto">
         <h2 className="section-title text-center">
           <span className="glow-title">Beneficios</span>
         </h2>
-        <div className="continuous-light-container text-center max-w-3xl mx-auto mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-12">
           <p className="text-lg text-gray-300">
             Descubre cómo nuestras soluciones de IA agéntica pueden transformar tu negocio
           </p>

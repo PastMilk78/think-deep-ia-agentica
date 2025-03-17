@@ -41,12 +41,12 @@ const Services = () => {
   ];
 
   return (
-    <section id="servicios" className="section bg-primary">
+    <section id="servicios" className="section bg-primary fullpage-light-section">
       <div className="container mx-auto">
         <h2 className="section-title text-center">
           <span className="glow-title">Nuestros Servicios</span>
         </h2>
-        <div className="continuous-light-container text-center max-w-3xl mx-auto mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-12">
           <p className="text-lg text-gray-300">
             Ofrecemos soluciones avanzadas de automatización, desarrollo de software y desarrollo web para optimizar tus procesos empresariales
           </p>

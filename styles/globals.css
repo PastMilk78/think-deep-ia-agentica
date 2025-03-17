@@ -223,15 +223,21 @@ a {
 /* Nuevo efecto de luz continuo para todo el contenedor */
 .continuous-light-container {
   position: relative;
-  overflow: hidden;
+  width: 100%;
 }
 
-.continuous-light-container::before {
+/* Contenedor para el efecto de luz de página completa */
+.fullpage-light-section {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.fullpage-light-section::before {
   content: '';
   position: absolute;
   top: 0;
-  left: -100%;
-  width: 200%;
+  left: -100vw;
+  width: 300vw;
   height: 100%;
   background: linear-gradient(90deg, 
     transparent 0%, 
@@ -240,18 +246,18 @@ a {
     rgba(255, 215, 0, 0.2) 80%,
     transparent 100%
   );
-  animation: continuous-light-sweep 8s ease-in-out infinite;
+  animation: fullpage-light-sweep 8s ease-in-out infinite;
   filter: blur(5px);
   z-index: 1;
   pointer-events: none;
 }
 
-@keyframes continuous-light-sweep {
+@keyframes fullpage-light-sweep {
   0% {
-    left: -100%;
+    transform: translateX(-100%);
   }
   100% {
-    left: 100%;
+    transform: translateX(100%);
   }
 }
 
