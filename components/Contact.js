@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import ScrollTriggerLight from './ScrollTriggerLight';
+import CalendlyWidget from './CalendlyWidget';
+import SocialIcons from './SocialIcons';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -128,7 +130,10 @@ const Contact = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        {/* Calendario de Calendly */}
+        <CalendlyWidget />
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
           <div>
             <h3 className="text-2xl font-semibold mb-6 text-white">Envíanos un mensaje</h3>
             <form className="space-y-6" onSubmit={handleSubmit}>
@@ -240,6 +245,12 @@ const Contact = () => {
               </div>
             </div>
           </div>
+        </div>
+        
+        {/* Iconos de redes sociales */}
+        <div className="mt-12">
+          <h3 className="text-xl font-semibold mb-4 text-white text-center">Síguenos en redes sociales</h3>
+          <SocialIcons />
         </div>
       </div>
     </section>

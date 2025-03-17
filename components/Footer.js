@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import SocialIcons from './SocialIcons';
 
 const Footer = () => {
   return (
@@ -22,6 +23,9 @@ const Footer = () => {
             <p className="text-gray-400 mb-4">
               Transformando negocios con soluciones inteligentes de IA agéntica.
             </p>
+            <div className="mb-6">
+              <SocialIcons />
+            </div>
           </div>
           
           <div>
